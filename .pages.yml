@@ -99,6 +99,31 @@ content:
       - { name: link, label: Optional event URL, type: string }
       - { name: featured, label: Feature this event, type: boolean }
       - { name: active, label: Show on website, type: boolean, default: true }
+  - name: gallery
+    label: Photo gallery
+    type: file
+    path: content/gallery.json
+    format: json
+    operations: { delete: false }
+    fields:
+      - { name: eyebrow, type: string }
+      - { name: headline, type: string, required: true }
+      - { name: introduction, type: text }
+      - name: photos
+        label: Photos
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: image, type: image, required: true }
+          - { name: title, label: Photo title, type: string, required: true }
+          - { name: caption, type: text }
+          - { name: date, label: Date or event, type: string }
+          - { name: credit, label: Photographer credit, type: string }
+          - { name: altText, label: Image description for accessibility, type: text }
+          - { name: active, label: Show on website, type: boolean, default: true }
   - name: volunteer
     label: Volunteer page
     type: file

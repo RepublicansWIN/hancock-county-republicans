@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   openGraph: {
     title: 'Hancock County Republicans',
-    description: 'Local voices. Shared purpose.',
+    description: 'Candidates, meetings, volunteer opportunities, and Republican news for Hancock County, Maine.',
     images: ['/og.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Hancock County Republicans',
-    description: 'Local voices. Shared purpose.',
+    description: 'Candidates, meetings, volunteer opportunities, and Republican news for Hancock County, Maine.',
     images: ['/og.png'],
   },
 };

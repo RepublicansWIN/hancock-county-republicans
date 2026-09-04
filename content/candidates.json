@@ -12,7 +12,7 @@
     "facebook": "",
     "endorsement": "Optional committee statement or candidate quotation.",
     "featured": true,
-    "active": true
+    "active": false
   },
   {
     "name": "Candidate Name",
@@ -27,6 +27,6 @@
     "facebook": "",
     "endorsement": "",
     "featured": false,
-    "active": true
+    "active": false
   }
 ]

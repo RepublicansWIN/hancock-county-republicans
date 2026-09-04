@@ -12,7 +12,7 @@ export function ContactForm({ kind = 'contact' }: { kind?: 'contact' | 'voluntee
     event.preventDefault();
     setSent(true);
   }
-  if (sent) return <div className="form-success" role="status"><strong>Thank you!</strong><p>This preview does not send submissions yet. Connect the committee’s preferred inbox or form service before launch.</p></div>;
+  if (sent) return <div className="form-success" role="status"><strong>Online delivery is not connected yet.</strong><p>Please use the committee email address listed on this page.</p></div>;
   return (
     <form className="contact-form" onSubmit={submit}>
       <FieldGroup>
@@ -24,7 +24,7 @@ export function ContactForm({ kind = 'contact' }: { kind?: 'contact' | 'voluntee
         <Field><FieldLabel htmlFor={`${kind}-message`}>Message</FieldLabel><Textarea id={`${kind}-message`} name="message" rows={6} required /></Field>
         <Button type="submit" className="form-button">{kind === 'volunteer' ? 'Raise my hand' : 'Send message'}</Button>
       </FieldGroup>
-      <p className="form-note">Demo form — delivery will be connected before launch.</p>
+      <p className="form-note">Online form delivery is not connected yet.</p>
     </form>
   );
 }

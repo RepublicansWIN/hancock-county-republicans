@@ -7,7 +7,7 @@
     "description": "Add meeting details, speakers, accessibility information, and anything attendees should bring.",
     "link": "",
     "featured": true,
-    "active": true
+    "active": false
   },
   {
     "title": "Community Event",
@@ -17,6 +17,6 @@
     "description": "Use this space for a fair, volunteer day, candidate event, or other community gathering.",
     "link": "",
     "featured": false,
-    "active": true
+    "active": false
   }
 ]

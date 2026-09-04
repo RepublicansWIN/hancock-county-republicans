@@ -1,0 +1,16 @@
+{
+  "eyebrow": "Photo gallery",
+  "headline": "Around Hancock County",
+  "introduction": "Photos from committee meetings, community events, candidate visits, and volunteer activities.",
+  "photos": [
+    {
+      "image": "",
+      "title": "Photo title",
+      "caption": "Add a short description of the event or people pictured.",
+      "date": "",
+      "credit": "",
+      "altText": "Describe the photo for visitors who use screen readers.",
+      "active": false
+    }
+  ]
+}

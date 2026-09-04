@@ -1,13 +1,13 @@
 {
   "eyebrow": "About the committee",
-  "headline": "Neighbors working together for Hancock County.",
-  "introduction": "Replace this text with an approved introduction to the Hancock County Republican Committee, its history, and the communities it serves.",
+  "headline": "Republicans serving Hancock County.",
+  "introduction": "The Hancock County Republican Committee is the county organization for Republicans across Hancock County, Maine.",
   "missionTitle": "Our mission",
-  "missionText": "Add the committee’s official mission statement here. This section is designed for a clear, concise explanation of why the committee exists and what it works to accomplish.",
+  "missionText": "We connect local Republicans, support candidates, share information about elections and public issues, and encourage participation in town, county, and state government.",
   "valuesTitle": "What guides our work",
   "values": [
-    { "title": "Community", "description": "Describe how the committee listens to and serves neighbors across Hancock County." },
-    { "title": "Participation", "description": "Explain how members help strengthen local civic life and representative government." },
-    { "title": "Stewardship", "description": "Add the committee’s language about responsible leadership and public service." }
+    { "title": "Community", "description": "Keeping the committee connected to towns and neighbors throughout Hancock County." },
+    { "title": "Participation", "description": "Helping residents take part in elections, meetings, campaigns, and local government." },
+    { "title": "Service", "description": "Supporting candidates and volunteers who are willing to serve their communities." }
   ]
 }
