@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { SiteFooter, SiteHeader } from '@/components/site-shell';
 import home from '@/content/home.json';
+import { publicAsset } from '@/lib/public-asset';
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-art" aria-label="Hancock County coastal landscape">
-          {home.heroImage ? <img className="hero-image" src={home.heroImage} alt="Hancock County, Maine" /> : <div className="coast-card"><p>Photo placeholder</p><span>Add a favorite Hancock County landscape or community photo here.</span></div>}
+          {home.heroImage ? <img className="hero-image" src={publicAsset(home.heroImage)} alt="Hancock County, Maine" /> : <div className="coast-card"><p>Photo placeholder</p><span>Add a favorite Hancock County landscape or community photo here.</span></div>}
           <div className="location-ribbon"><span>44.5° N</span><strong>Downeast Maine</strong><span>68.4° W</span></div>
         </div>
       </section>

@@ -3,6 +3,8 @@
 @import 'shadcn/tailwind.css';
 
 :root {
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-serif: Georgia, 'Times New Roman', serif;
   --navy: #102b46;
   --navy-deep: #091d30;
   --red: #b53731;
