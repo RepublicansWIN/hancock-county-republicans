@@ -117,6 +117,35 @@ h1 em { color: var(--red); font-weight: 500; }
 blockquote { margin: 2rem 0; padding: 1rem 0 1rem 1.4rem; border-left: 3px solid var(--gold); color: var(--navy); font-family: var(--font-serif), Georgia, serif; font-size: 1.05rem; }
 .candidate-links { display: flex; gap: .75rem; flex-wrap: wrap; }
 .candidate-links a { color: var(--red); font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.candidate-note { display: grid; grid-template-columns: .45fr 1.3fr auto; gap: 2rem; align-items: start; margin-bottom: 3rem; padding: 1.5rem; background: var(--cream); border-left: 5px solid var(--navy); }
+.candidate-note strong { color: var(--navy); font-family: var(--font-serif), Georgia, serif; font-size: 1.25rem; }
+.candidate-note p { margin: 0; color: var(--muted); line-height: 1.65; }
+.candidate-note > div { display: grid; gap: .45rem; }
+.candidate-note a { color: var(--red); font-size: .7rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.district-list { display: grid; gap: 3rem; }
+.district-card { background: #fff; border: 1px solid var(--line); }
+.district-heading { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; padding: 2rem; border-bottom: 1px solid var(--line); }
+.district-heading h2 { margin: .2rem 0 0; font-size: clamp(2rem,3vw,3.1rem); }
+.district-heading > span { color: var(--muted); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.no-republican { margin: 0; padding: 1rem 2rem; color: #694c22; background: #f4ead5; border-bottom: 1px solid #ddcfb2; font-size: .82rem; font-weight: 700; }
+.district-candidates { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
+.candidate-profile { display: grid; grid-template-columns: 84px 1fr; gap: 1.25rem; min-height: 220px; padding: 2rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.candidate-profile:nth-child(even) { border-right: 0; }
+.candidate-profile.republican { border-top: 5px solid var(--red); background: #fcfaf5; }
+.candidate-portrait { width: 84px; height: 104px; display: grid; place-items: center; overflow: hidden; color: white; background: var(--navy); }
+.candidate-portrait img { width: 100%; height: 100%; object-fit: cover; }
+.candidate-portrait span { font-family: var(--font-serif), Georgia, serif; font-size: 1.8rem; }
+.party-badge { width: max-content; margin: 0 0 .55rem; padding: .28rem .5rem; color: #fff; background: #64707b; font-size: .62rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+.party-republican { background: var(--red); }
+.party-democratic { background: #315d89; }
+.candidate-profile h3 { margin: 0; color: var(--navy); font-family: var(--font-serif), Georgia, serif; font-size: 1.55rem; }
+.candidate-profile p { color: var(--muted); line-height: 1.55; }
+.candidate-profile .candidate-residence { margin: .35rem 0 .8rem; color: var(--ink); font-size: .78rem; font-weight: 700; }
+.candidate-profile ul { margin: 1rem 0; padding-left: 1.1rem; color: var(--muted); font-size: .84rem; line-height: 1.6; }
+.district-communities { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2rem; background: var(--navy); color: #d8e1e8; }
+.district-communities > div:only-child { grid-column: 1/-1; }
+.district-communities h3 { margin: 0 0 .75rem; color: var(--gold); font-size: .67rem; letter-spacing: .13em; text-transform: uppercase; }
+.district-communities p { margin: 0; font-size: .86rem; line-height: 1.8; }
 .public-empty { max-width: 760px; padding: clamp(2rem,5vw,4rem); background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--navy); }
 .public-empty h2 { margin: 0 0 .8rem; font-size: clamp(1.8rem,3vw,2.7rem); }
 .public-empty p { margin: 0; color: var(--muted); line-height: 1.7; }
@@ -177,6 +206,7 @@ footer .brand-mark { width: 34px; height: 34px; font-size: .95rem; }
   .candidate-card, .volunteer-section, .contact-section, .news-section { grid-template-columns: 1fr; }
   .gallery-grid .gallery-featured { grid-template-columns: 1fr; }
   .candidate-photo { min-height: 360px; }
+  .candidate-note { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {
   .site-header { height: 78px; gap: .75rem; }
@@ -201,6 +231,10 @@ footer .brand-mark { width: 34px; height: 34px; font-size: .95rem; }
   .news-card > img { min-height: 220px; max-height: 340px; }
   .candidate-section, .event-section { padding-left: 1rem; padding-right: 1rem; }
   .candidate-photo { min-height: 300px; }
+  .district-candidates, .district-communities { grid-template-columns: 1fr; }
+  .candidate-profile { grid-template-columns: 64px 1fr; padding: 1.35rem; border-right: 0; }
+  .candidate-portrait { width: 64px; height: 80px; }
+  .district-heading { align-items: start; padding: 1.5rem; }
   .event-list article, .event-list article.featured-event { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 0; border-left: 0; }
   .field-row { grid-template-columns: 1fr; }
   footer { grid-template-columns: 1fr; }

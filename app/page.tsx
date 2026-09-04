@@ -17,7 +17,7 @@ export default function Home() {
           <div className="hero-actions"><Link className="button" href="/events">Upcoming events</Link><Link className="text-link" href="/contact">Contact the committee <span aria-hidden="true">→</span></Link></div>
         </div>
         <div className="hero-art" aria-label="Hancock County coastal landscape">
-          {home.heroImage ? <><img className="hero-image" src={publicAsset(home.heroImage)} alt="Hancock County, Maine" /><p className="photo-caption">Hancock County · Downeast Maine</p></> : <div className="county-panel"><span>Hancock County Republican Committee</span><strong>Local meetings, candidates, and volunteer opportunities.</strong><p>Serving communities throughout Hancock County, Maine.</p></div>}
+          {home.heroImage ? <><img className="hero-image" src={publicAsset(home.heroImage)} alt="Hancock County, Maine" /><p className="photo-caption">Hancock County · Downeast Maine</p></> : <div className="county-panel"><span>Maine’s Hancock County GOP</span><strong>Local meetings, candidates, and volunteer opportunities.</strong><p>Serving communities throughout Hancock County, Maine.</p></div>}
         </div>
       </section>
 

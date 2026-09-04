@@ -32,8 +32,8 @@ export function SiteFooter() {
   return (
     <footer>
       <div className="footer-brand"><span className="brand-mark">HC</span><strong>{site.shortName}</strong></div>
-      <p>{site.email} • {site.location}</p>
-      <p className="disclaimer">{site.disclaimer}</p>
+      <p>{[site.email, site.location].filter(Boolean).join(' • ')}</p>
+      {site.disclaimer && <p className="disclaimer">{site.disclaimer}</p>}
     </footer>
   );
 }

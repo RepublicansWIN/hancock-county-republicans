@@ -23,7 +23,7 @@ content:
       - { name: phone, type: string }
       - { name: mailingAddress, label: Mailing address, type: text }
       - { name: facebook, label: Facebook URL, type: string }
-      - { name: disclaimer, label: Paid-for-by disclaimer, type: text, required: true }
+      - { name: disclaimer, label: Committee-approved disclaimer, type: text }
   - name: home
     label: Home page
     type: file
@@ -71,8 +71,10 @@ content:
     operations: { delete: false }
     fields:
       - { name: name, type: string, required: true }
+      - { name: party, type: select, required: true, options: { values: [Republican, Democratic, Independent, Unenrolled] } }
       - { name: office, label: Office sought, type: string, required: true }
-      - { name: district, label: District or community, type: string }
+      - { name: district, label: District number, type: string, required: true }
+      - { name: residence, label: Residence municipality, type: string }
       - { name: photo, type: image }
       - { name: summary, label: Short introduction, type: text }
       - { name: bio, label: Biography, type: text }
@@ -80,9 +82,20 @@ content:
       - { name: website, label: Website URL, type: string }
       - { name: email, type: string }
       - { name: facebook, label: Facebook URL, type: string }
-      - { name: endorsement, label: Optional quotation or statement, type: text }
       - { name: featured, label: Feature this candidate, type: boolean }
       - { name: active, label: Show on website, type: boolean, default: true }
+  - name: districts
+    label: Legislative districts
+    type: file
+    path: content/districts.json
+    format: json
+    list: true
+    operations: { delete: false }
+    fields:
+      - { name: office, label: Chamber, type: select, required: true, options: { values: [Maine Senate, Maine House] } }
+      - { name: district, label: District number, type: string, required: true }
+      - { name: hancockCommunities, label: Hancock County communities, type: string, list: true }
+      - { name: otherCommunities, label: Communities outside Hancock County, type: string, list: true }
   - name: events
     label: Events
     type: file

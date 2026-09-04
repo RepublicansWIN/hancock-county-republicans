@@ -1,0 +1,12 @@
+[
+  { "office": "Maine Senate", "district": "6", "hancockCommunities": ["Amherst", "Aurora", "Central Hancock", "East Hancock", "Eastbrook", "Franklin", "Gouldsboro", "Great Pond", "Hancock", "Mariaville", "Northwest Hancock", "Osborn", "Sorrento", "Sullivan", "Waltham", "Winter Harbor"], "otherCommunities": ["All of Washington County"] },
+  { "office": "Maine Senate", "district": "7", "hancockCommunities": ["Bar Harbor", "Blue Hill", "Brooklin", "Brooksville", "Castine", "Cranberry Isles", "Deer Isle", "Ellsworth", "Frenchboro", "Lamoine", "Marshall Island", "Mount Desert", "Orland", "Penobscot", "Sedgwick", "Southwest Harbor", "Stonington", "Surry", "Swan's Island", "Tremont", "Trenton", "Verona Island"], "otherCommunities": ["Isle au Haut (Knox County)"] },
+  { "office": "Maine Senate", "district": "10", "hancockCommunities": ["Bucksport", "Dedham", "Otis"], "otherCommunities": ["Bradley", "Brewer", "Carmel", "Clifton", "Eddington", "Hampden", "Holden", "Newburgh", "Orrington"] },
+  { "office": "Maine House", "district": "12", "hancockCommunities": ["Franklin", "Gouldsboro", "Hancock", "Sorrento", "Sullivan", "Winter Harbor"], "otherCommunities": ["Steuben (Washington County)"] },
+  { "office": "Maine House", "district": "13", "hancockCommunities": ["Central Hancock", "Ellsworth", "Waltham"], "otherCommunities": [] },
+  { "office": "Maine House", "district": "14", "hancockCommunities": ["Bar Harbor", "Cranberry Isles", "Lamoine", "Mount Desert"], "otherCommunities": [] },
+  { "office": "Maine House", "district": "15", "hancockCommunities": ["Brooklin", "Deer Isle", "Frenchboro", "Marshall Island", "Southwest Harbor", "Stonington", "Swan's Island", "Tremont"], "otherCommunities": ["Isle au Haut (Knox County)", "Vinalhaven (Knox County)"] },
+  { "office": "Maine House", "district": "16", "hancockCommunities": ["Blue Hill", "Brooksville", "Castine", "Sedgwick", "Surry", "Trenton"], "otherCommunities": [] },
+  { "office": "Maine House", "district": "17", "hancockCommunities": ["Bucksport", "Orland", "Penobscot", "Verona Island"], "otherCommunities": [] },
+  { "office": "Maine House", "district": "18", "hancockCommunities": ["Amherst", "Aurora", "Dedham", "East Hancock", "Eastbrook", "Great Pond", "Mariaville", "Northwest Hancock", "Osborn", "Otis"], "otherCommunities": ["Burlington (Penobscot County)", "Clifton (Penobscot County)", "East Central Penobscot (Penobscot County)", "Greenbush (Penobscot County)", "Lowell (Penobscot County)", "Passadumkeag (Penobscot County)"] }
+]
