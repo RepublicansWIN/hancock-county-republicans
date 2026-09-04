@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Candidate Name",
+    "office": "Office Sought",
+    "district": "District or community",
+    "photo": "",
+    "summary": "Add a short, factual introduction to this candidate.",
+    "bio": "Add an approved candidate biography here. Include relevant experience, community involvement, and reasons for running.",
+    "priorities": ["Priority placeholder", "Priority placeholder", "Priority placeholder"],
+    "website": "",
+    "email": "",
+    "facebook": "",
+    "endorsement": "Optional committee statement or candidate quotation.",
+    "featured": true,
+    "active": true
+  },
+  {
+    "name": "Candidate Name",
+    "office": "Office Sought",
+    "district": "District or community",
+    "photo": "",
+    "summary": "Add a short, factual introduction to this candidate.",
+    "bio": "Add an approved candidate biography here. Each candidate is a separate editable record.",
+    "priorities": ["Priority placeholder", "Priority placeholder"],
+    "website": "",
+    "email": "",
+    "facebook": "",
+    "endorsement": "",
+    "featured": false,
+    "active": true
+  }
+]

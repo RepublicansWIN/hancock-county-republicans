@@ -1,0 +1,13 @@
+{
+  "eyebrow": "About the committee",
+  "headline": "Neighbors working together for Hancock County.",
+  "introduction": "Replace this text with an approved introduction to the Hancock County Republican Committee, its history, and the communities it serves.",
+  "missionTitle": "Our mission",
+  "missionText": "Add the committee’s official mission statement here. This section is designed for a clear, concise explanation of why the committee exists and what it works to accomplish.",
+  "valuesTitle": "What guides our work",
+  "values": [
+    { "title": "Community", "description": "Describe how the committee listens to and serves neighbors across Hancock County." },
+    { "title": "Participation", "description": "Explain how members help strengthen local civic life and representative government." },
+    { "title": "Stewardship", "description": "Add the committee’s language about responsible leadership and public service." }
+  ]
+}

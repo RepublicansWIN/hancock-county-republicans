@@ -1,0 +1,132 @@
+media:
+  input: public/uploads
+  output: /uploads
+  rename: safe
+  categories: [image]
+
+settings:
+  content:
+    merge: true
+
+content:
+  - name: site
+    label: Site settings
+    type: file
+    path: content/site.json
+    format: json
+    operations: { delete: false }
+    fields:
+      - { name: organization, label: Full organization name, type: string, required: true }
+      - { name: shortName, label: Short organization name, type: string, required: true }
+      - { name: location, type: string }
+      - { name: email, type: string }
+      - { name: phone, type: string }
+      - { name: mailingAddress, label: Mailing address, type: text }
+      - { name: facebook, label: Facebook URL, type: string }
+      - { name: disclaimer, label: Paid-for-by disclaimer, type: text, required: true }
+  - name: home
+    label: Home page
+    type: file
+    path: content/home.json
+    format: json
+    operations: { delete: false }
+    fields:
+      - { name: eyebrow, type: string }
+      - { name: headline, type: string, required: true }
+      - { name: headlineAccent, label: Headline accent, type: string, required: true }
+      - { name: introduction, type: text }
+      - { name: heroImage, label: Main photo, type: image }
+      - { name: missionEyebrow, label: Mission eyebrow, type: string }
+      - { name: missionHeadline, label: Mission headline, type: string }
+      - { name: missionText, label: Mission text, type: text }
+  - name: about
+    label: About page
+    type: file
+    path: content/about.json
+    format: json
+    operations: { delete: false }
+    fields:
+      - { name: eyebrow, type: string }
+      - { name: headline, type: string }
+      - { name: introduction, type: text }
+      - { name: missionTitle, label: Mission title, type: string }
+      - { name: missionText, label: Mission text, type: text }
+      - { name: valuesTitle, label: Values heading, type: string }
+      - name: values
+        label: Values
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: title, type: string }
+          - { name: description, type: text }
+  - name: candidates
+    label: Candidates
+    type: file
+    path: content/candidates.json
+    format: json
+    list: true
+    operations: { delete: false }
+    fields:
+      - { name: name, type: string, required: true }
+      - { name: office, label: Office sought, type: string, required: true }
+      - { name: district, label: District or community, type: string }
+      - { name: photo, type: image }
+      - { name: summary, label: Short introduction, type: text }
+      - { name: bio, label: Biography, type: text }
+      - { name: priorities, type: string, list: true }
+      - { name: website, label: Website URL, type: string }
+      - { name: email, type: string }
+      - { name: facebook, label: Facebook URL, type: string }
+      - { name: endorsement, label: Optional quotation or statement, type: text }
+      - { name: featured, label: Feature this candidate, type: boolean }
+      - { name: active, label: Show on website, type: boolean, default: true }
+  - name: events
+    label: Events
+    type: file
+    path: content/events.json
+    format: json
+    list: true
+    operations: { delete: false }
+    fields:
+      - { name: title, type: string, required: true }
+      - { name: date, type: string, required: true }
+      - { name: time, type: string }
+      - { name: location, type: string }
+      - { name: description, type: text }
+      - { name: link, label: Optional event URL, type: string }
+      - { name: featured, label: Feature this event, type: boolean }
+      - { name: active, label: Show on website, type: boolean, default: true }
+  - name: volunteer
+    label: Volunteer page
+    type: file
+    path: content/volunteer.json
+    format: json
+    operations: { delete: false }
+    fields:
+      - { name: eyebrow, type: string }
+      - { name: headline, type: string }
+      - { name: introduction, type: text }
+      - name: opportunities
+        label: Ways to help
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: title, type: string }
+          - { name: description, type: text }
+  - name: contact
+    label: Contact page
+    type: file
+    path: content/contact.json
+    format: json
+    operations: { delete: false }
+    fields:
+      - { name: eyebrow, type: string }
+      - { name: headline, type: string }
+      - { name: introduction, type: text }
+      - { name: responseNote, label: Response note, type: text }

@@ -1,0 +1,10 @@
+{
+  "eyebrow": "Get involved",
+  "headline": "There is a place for you in this work.",
+  "introduction": "Replace this text with a friendly invitation explaining how volunteers support the committee and local candidates.",
+  "opportunities": [
+    { "title": "Host or attend an event", "description": "Welcome neighbors, help with setup, or provide a space for a local gathering." },
+    { "title": "Support a candidate", "description": "Help with signs, literature, calls, outreach, or another campaign need." },
+    { "title": "Share your skills", "description": "Photography, writing, logistics, technology, and many other skills are valuable." }
+  ]
+}
