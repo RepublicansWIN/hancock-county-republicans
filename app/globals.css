@@ -135,6 +135,9 @@ blockquote { margin: 2rem 0; padding: 1rem 0 1rem 1.4rem; border-left: 3px solid
 .candidate-portrait { width: 84px; height: 104px; display: grid; place-items: center; overflow: hidden; color: white; background: var(--navy); }
 .candidate-portrait img { width: 100%; height: 100%; object-fit: cover; }
 .candidate-portrait span { font-family: var(--font-serif), Georgia, serif; font-size: 1.8rem; }
+.candidate-portrait .photo-needed { display: grid; gap: .25rem; place-items: center; padding: .55rem; text-align: center; }
+.candidate-portrait .photo-needed b { font-size: 1.55rem; }
+.candidate-portrait .photo-needed small { font-family: var(--font-sans), Arial, sans-serif; font-size: .52rem; font-weight: 800; letter-spacing: .05em; line-height: 1.2; text-transform: uppercase; }
 .party-badge { width: max-content; margin: 0 0 .55rem; padding: .28rem .5rem; color: #fff; background: #64707b; font-size: .62rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
 .party-republican { background: var(--red); }
 .party-democratic { background: #315d89; }

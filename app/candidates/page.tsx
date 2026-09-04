@@ -13,22 +13,21 @@ function initials(name: string) {
 }
 
 export default function CandidatesPage() {
-  const active = candidates.filter(candidate => candidate.active);
+  const active = candidates.filter(candidate => candidate.active && candidate.party === 'Republican');
+  const republicanDistricts = districts.filter(district => active.some(candidate => candidate.office === district.office && candidate.district === district.district));
 
-  return <main><SiteHeader /><PageHeader eyebrow="2026 general election" title="Candidates in Hancock County’s legislative districts." intro="Every Maine Senate and Maine House race whose district includes part of Hancock County, with the communities in each district." />
+  return <main><SiteHeader /><PageHeader eyebrow="2026 general election" title="Republican candidates for Hancock County." intro="Meet the Republican candidates running in Maine Senate and Maine House districts that include Hancock County communities." />
     <section className="candidate-section">
       <div className="candidate-note">
         <strong>About this list</strong>
-        <p>Republican candidates are highlighted. All other candidates in the Maine Secretary of State’s current general-election list are included for completeness. Candidate information was reviewed September 3, 2026.</p>
+        <p>This page lists Republican candidates in legislative districts that include part of Hancock County. Candidate information was reviewed September 3, 2026.</p>
         <div><a href={candidateListUrl} target="_blank" rel="noopener noreferrer">Official candidate list</a><a href={senateDistrictsUrl} target="_blank" rel="noopener noreferrer">Senate districts</a><a href={houseDistrictsUrl} target="_blank" rel="noopener noreferrer">House districts</a></div>
       </div>
 
       <div className="district-list">
-        {districts.map(district => {
+        {republicanDistricts.map(district => {
           const districtCandidates = active
-            .filter(candidate => candidate.office === district.office && candidate.district === district.district)
-            .sort((a, b) => Number(b.party === 'Republican') - Number(a.party === 'Republican'));
-          const hasRepublican = districtCandidates.some(candidate => candidate.party === 'Republican');
+            .filter(candidate => candidate.office === district.office && candidate.district === district.district);
 
           return <article className="district-card" key={`${district.office}-${district.district}`}>
             <header className="district-heading">
@@ -36,18 +35,16 @@ export default function CandidatesPage() {
               <span>{districtCandidates.length} {districtCandidates.length === 1 ? 'candidate' : 'candidates'}</span>
             </header>
 
-            {!hasRepublican && <p className="no-republican">No Republican candidate appears in the current official general-election list.</p>}
-
             <div className="district-candidates">
-              {districtCandidates.map(candidate => <section className={`candidate-profile ${candidate.party === 'Republican' ? 'republican' : ''}`} key={candidate.name}>
-                <div className="candidate-portrait">{candidate.photo ? <Image src={publicAsset(candidate.photo)} alt={candidate.name} width={168} height={208} /> : <span aria-hidden="true">{initials(candidate.name)}</span>}</div>
+              {districtCandidates.map(candidate => <section className="candidate-profile republican" key={candidate.name}>
+                <div className="candidate-portrait">{candidate.photo ? <Image src={publicAsset(candidate.photo)} alt={`${candidate.name} profile portrait`} width={168} height={208} /> : <span className="photo-needed" aria-label={`Profile photo needed for ${candidate.name}`}><b aria-hidden="true">{initials(candidate.name)}</b><small>Photo coming soon</small></span>}</div>
                 <div>
                   <p className={`party-badge party-${candidate.party.toLowerCase()}`}>{candidate.party}</p>
                   <h3>{candidate.name}</h3>
                   <p className="candidate-residence">Residence: {candidate.residence}</p>
                   {candidate.bio && <p>{candidate.bio}</p>}
                   {candidate.priorities.length > 0 && <ul>{candidate.priorities.map(priority => <li key={priority}>{priority}</li>)}</ul>}
-                  <div className="candidate-links">{candidate.website && <a href={candidate.website} target="_blank" rel="noopener noreferrer">Campaign website</a>}{candidate.email && <a href={`mailto:${candidate.email}`}>Email</a>}{candidate.facebook && <a href={candidate.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>}</div>
+                  <div className="candidate-links">{candidate.website && <a href={candidate.website} target="_blank" rel="noopener noreferrer">Visit candidate webpage</a>}{candidate.email && <a href={`mailto:${candidate.email}`}>Email</a>}{candidate.facebook && <a href={candidate.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>}</div>
                 </div>
               </section>)}
             </div>
