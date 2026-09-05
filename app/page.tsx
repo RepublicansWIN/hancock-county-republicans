@@ -7,7 +7,7 @@ import site from '@/content/site.json';
 import { publicAsset } from '@/lib/public-asset';
 
 export default function Home() {
-  const facebookPluginUrl = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(site.facebook)}&tabs=timeline&width=500&height=620&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false`;
+  const facebookPluginUrl = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(site.facebook)}&tabs=timeline&width=380&height=460&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false`;
 
   return (
     <main>
@@ -15,14 +15,21 @@ export default function Home() {
 
       {site.facebookFeedEnabled && site.facebook && <section className="facebook-feature">
         <div className="facebook-feature-copy">
-          <p className="eyebrow">Latest update</p>
-          <h1>What’s happening<br /><em>right now.</em></h1>
-          <p>The newest public post from the Hancock County Republican Facebook page.</p>
-          <div className="facebook-actions"><a className="text-link" href={site.facebook} target="_blank" rel="noopener noreferrer">Open Facebook <span aria-hidden="true">→</span></a>{site.donateEnabled && <a className="button" href={site.donateUrl || '/contact'}>Donate</a>}</div>
+          <p className="eyebrow">From the committee</p>
+          <h1>Latest from<br /><em>Hancock County.</em></h1>
+          <p>News, meeting reminders, and updates from our Facebook page.</p>
+          <div className="facebook-actions"><a className="button" href={site.facebook} target="_blank" rel="noopener noreferrer">Follow on Facebook</a>{site.donateEnabled && <a className="text-link" href={site.donateUrl || '/contact'}>Support our work <span aria-hidden="true">→</span></a>}</div>
         </div>
-        <div className="facebook-embed-wrap">
-          <iframe title="Latest posts from Hancock County Republicans on Facebook" src={facebookPluginUrl} width="500" height="620" loading="eager" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" />
-          <p>If Facebook does not display here, <a href={site.facebook} target="_blank" rel="noopener noreferrer">view the latest post on Facebook</a>.</p>
+        <div className="social-window">
+          <div className="social-window-bar">
+            <span className="facebook-icon" aria-hidden="true">f</span>
+            <div><strong>Hancock County Republicans</strong><small>Live Facebook updates</small></div>
+            <span className="live-indicator"><i /> Live</span>
+          </div>
+          <div className="facebook-embed-wrap">
+            <iframe title="Latest posts from Hancock County Republicans on Facebook" src={facebookPluginUrl} width="380" height="460" loading="eager" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" />
+          </div>
+          <a className="social-window-footer" href={site.facebook} target="_blank" rel="noopener noreferrer">View all updates on Facebook <span aria-hidden="true">↗</span></a>
         </div>
       </section>}
 

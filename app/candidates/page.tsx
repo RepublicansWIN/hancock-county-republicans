@@ -4,10 +4,6 @@ import candidates from '@/content/candidates.json';
 import districts from '@/content/districts.json';
 import { publicAsset } from '@/lib/public-asset';
 
-const candidateListUrl = 'https://www.maine.gov/sos/elections-voting/upcoming-elections';
-const senateDistrictsUrl = 'https://legislature.maine.gov/statutes/21-a/title21-Asec1203-C.html';
-const houseDistrictsUrl = 'https://legislature.maine.gov/statutes/21-a/title21-Asec1204-C.html';
-
 function initials(name: string) {
   return name.split(/\s+/).filter(part => !['Jr.', 'II'].includes(part)).slice(0, 2).map(part => part[0]).join('');
 }
@@ -40,12 +36,6 @@ export default function CandidatesPage() {
 
   return <main><SiteHeader /><PageHeader eyebrow="2026 general election" title="Republican candidates for Hancock County." intro="Meet the Republican nominees on Hancock County ballots—from governor and Congress to the Maine Legislature." />
     <section className="candidate-section">
-      <div className="candidate-note">
-        <strong>About this list</strong>
-        <p>This page lists the Republican statewide and federal nominees serving Hancock County, plus Republican nominees in legislative districts that include county communities. Reviewed September 4, 2026.</p>
-        <div><a href={candidateListUrl} target="_blank" rel="noopener noreferrer">Official candidate list</a><a href={senateDistrictsUrl} target="_blank" rel="noopener noreferrer">Senate districts</a><a href={houseDistrictsUrl} target="_blank" rel="noopener noreferrer">House districts</a></div>
-      </div>
-
       <div className="candidate-groups">
         {groups.map(group => {
           const groupCandidates = active.filter(candidate => group.offices.includes(candidate.office));

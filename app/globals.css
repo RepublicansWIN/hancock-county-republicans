@@ -46,14 +46,23 @@ nav a:hover, nav a:focus-visible { border-color: var(--red); }
 .button:hover, .button:focus-visible { background: var(--red-dark); transform: translateY(-2px); }
 .button-small { min-height: 42px; justify-self: end; }
 
-.facebook-feature { min-height: 650px; display: grid; grid-template-columns: minmax(0,.9fr) minmax(360px,1.1fr); gap: clamp(2.5rem,7vw,7rem); align-items: center; padding: clamp(3rem,6vw,5rem) clamp(1.25rem,8vw,9rem); background: #fff; border-bottom: 1px solid var(--line); }
-.facebook-feature-copy h1 { font-size: clamp(2.8rem,5vw,4.9rem); }
-.facebook-feature-copy > p:not(.eyebrow) { max-width: 540px; margin: 1.5rem 0 2rem; color: var(--muted); font-family: var(--font-serif), Georgia, serif; font-size: 1.15rem; line-height: 1.65; }
+.facebook-feature { min-height: 540px; display: grid; grid-template-columns: minmax(0,1fr) minmax(320px,400px); gap: clamp(2.5rem,7vw,7rem); align-items: center; padding: clamp(3rem,6vw,5rem) clamp(1.25rem,10vw,11rem); background: linear-gradient(115deg,#fff 0%,#fff 63%,#f1eee7 63%,#f1eee7 100%); border-bottom: 1px solid var(--line); }
+.facebook-feature-copy { max-width: 610px; }
+.facebook-feature-copy h1 { font-size: clamp(2.6rem,4.5vw,4.45rem); }
+.facebook-feature-copy > p:not(.eyebrow) { max-width: 500px; margin: 1.35rem 0 1.8rem; color: var(--muted); font-family: var(--font-serif), Georgia, serif; font-size: 1.08rem; line-height: 1.6; }
 .facebook-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-.facebook-embed-wrap { width: min(100%,540px); justify-self: end; padding: 1.25rem; background: var(--cream); border: 1px solid var(--line); box-shadow: 14px 14px 0 var(--navy); }
-.facebook-embed-wrap iframe { display: block; width: 100%; max-width: 500px; height: 620px; margin: 0 auto; border: 0; overflow: hidden; background: #fff; }
-.facebook-embed-wrap > p { margin: 1rem 0 0; color: var(--muted); font-size: .7rem; line-height: 1.5; text-align: center; }
-.facebook-embed-wrap > p a { color: var(--red); font-weight: 800; }
+.social-window { width: min(100%,400px); justify-self: end; overflow: hidden; background: #fff; border: 1px solid #d8dce2; border-radius: 14px; box-shadow: 0 22px 55px rgba(9,29,48,.16),0 3px 10px rgba(9,29,48,.08); }
+.social-window-bar { min-height: 64px; display: grid; grid-template-columns: 36px 1fr auto; gap: .75rem; align-items: center; padding: .75rem 1rem; border-bottom: 1px solid #e5e7eb; }
+.facebook-icon { display: grid; place-items: end center; width: 36px; height: 36px; overflow: hidden; color: #fff; background: #1877f2; border-radius: 50%; font-family: Arial,sans-serif; font-size: 1.9rem; font-weight: 900; line-height: 1; }
+.social-window-bar strong,.social-window-bar small { display: block; }
+.social-window-bar strong { color: var(--navy); font-size: .78rem; }
+.social-window-bar small { margin-top: .2rem; color: var(--muted); font-size: .65rem; }
+.live-indicator { display: flex; align-items: center; gap: .35rem; color: #53705d; font-size: .61rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.live-indicator i { width: 6px; height: 6px; background: #3d9b59; border-radius: 50%; box-shadow: 0 0 0 3px rgba(61,155,89,.12); }
+.facebook-embed-wrap { height: 460px; overflow: hidden; background: #f0f2f5; }
+.facebook-embed-wrap iframe { display: block; width: 100%; height: 460px; margin: 0 auto; border: 0; overflow: hidden; background: #fff; }
+.social-window-footer { display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 0 1rem; color: #315d89; background: #fff; border-top: 1px solid #e5e7eb; font-size: .67rem; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
+.social-window-footer:hover,.social-window-footer:focus-visible { background: #f7f8fa; color: #174e87; }
 
 .hero { min-height: 560px; display: grid; grid-template-columns: 1.08fr .92fr; background: var(--cream); overflow: hidden; }
 .hero-copy { padding: clamp(4rem,8vw,7rem) clamp(2rem,6vw,7rem); align-self: center; }
@@ -142,11 +151,6 @@ h1 em { color: var(--red); font-weight: 500; }
 blockquote { margin: 2rem 0; padding: 1rem 0 1rem 1.4rem; border-left: 3px solid var(--gold); color: var(--navy); font-family: var(--font-serif), Georgia, serif; font-size: 1.05rem; }
 .candidate-links { display: flex; gap: .75rem; flex-wrap: wrap; }
 .candidate-links a { color: var(--red); font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
-.candidate-note { display: grid; grid-template-columns: .45fr 1.3fr auto; gap: 2rem; align-items: start; margin-bottom: 3rem; padding: 1.5rem; background: var(--cream); border-left: 5px solid var(--navy); }
-.candidate-note strong { color: var(--navy); font-family: var(--font-serif), Georgia, serif; font-size: 1.25rem; }
-.candidate-note p { margin: 0; color: var(--muted); line-height: 1.65; }
-.candidate-note > div { display: grid; gap: .45rem; }
-.candidate-note a { color: var(--red); font-size: .7rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
 .candidate-groups { display: grid; gap: clamp(4rem,7vw,6rem); }
 .candidate-group > header { display: grid; grid-template-columns: .75fr 1.25fr; gap: 2rem; align-items: end; margin-bottom: 1.6rem; padding-bottom: 1.25rem; border-bottom: 3px solid var(--navy); }
 .candidate-group > header .eyebrow { margin-bottom: .55rem; }
@@ -245,13 +249,12 @@ footer .brand-mark { width: 34px; height: 34px; font-size: .95rem; }
   .site-header { grid-template-columns: 1fr auto; }
   nav { display: none; }
   .facebook-feature, .hero { grid-template-columns: 1fr; }
-  .facebook-embed-wrap { justify-self: start; }
+  .social-window { justify-self: start; }
   .hero-copy { padding-bottom: 5rem; }
   .hero-art { min-height: 480px; }
   .candidate-card, .volunteer-section, .contact-section, .news-section, .home-volunteer { grid-template-columns: 1fr; }
   .gallery-grid .gallery-featured { grid-template-columns: 1fr; }
   .candidate-photo { min-height: 360px; }
-  .candidate-note { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {
   .site-header { height: 78px; gap: .75rem; }
@@ -262,9 +265,9 @@ footer .brand-mark { width: 34px; height: 34px; font-size: .95rem; }
   nav a { flex: 0 0 auto; }
   .nav-dropdown-menu { left: 0; right: auto; z-index: 20; }
   .hero { min-height: 0; }
-  .facebook-feature { min-height: 0; padding: 3.5rem 1rem; }
-  .facebook-embed-wrap { width: 100%; padding: .65rem; box-shadow: 7px 7px 0 var(--navy); }
-  .facebook-embed-wrap iframe { height: 560px; }
+  .facebook-feature { min-height: 0; padding: 3.5rem 1rem; background: #fff; }
+  .social-window { width: 100%; justify-self: stretch; border-radius: 10px; }
+  .facebook-embed-wrap,.facebook-embed-wrap iframe { height: 430px; }
   .hero-copy { padding: 4.75rem 1.35rem; }
   .hero-art { min-height: 400px; padding: 1.5rem; }
   .photo-caption { right: 1.5rem; }
