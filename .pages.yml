@@ -76,6 +76,7 @@ content:
       - { name: district, label: District number, type: string, required: true }
       - { name: residence, label: Residence municipality, type: string }
       - { name: photo, type: image }
+      - { name: photoPosition, label: Photo crop position, type: string, default: center }
       - { name: summary, label: Short introduction, type: text }
       - { name: bio, label: Biography, type: text }
       - { name: priorities, type: string, list: true }

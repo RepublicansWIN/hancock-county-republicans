@@ -4,7 +4,7 @@ import candidates from '@/content/candidates.json';
 import districts from '@/content/districts.json';
 import { publicAsset } from '@/lib/public-asset';
 
-const candidateListUrl = 'https://www1.maine.gov/sos/elections-voting/upcoming-elections';
+const candidateListUrl = 'https://www.maine.gov/sos/elections-voting/upcoming-elections';
 const senateDistrictsUrl = 'https://legislature.maine.gov/statutes/21-a/title21-Asec1203-C.html';
 const houseDistrictsUrl = 'https://legislature.maine.gov/statutes/21-a/title21-Asec1204-C.html';
 
@@ -12,48 +12,47 @@ function initials(name: string) {
   return name.split(/\s+/).filter(part => !['Jr.', 'II'].includes(part)).slice(0, 2).map(part => part[0]).join('');
 }
 
+function CandidateCard({ candidate }: { candidate: (typeof candidates)[number] }) {
+  const district = districts.find(item => item.office === candidate.office && item.district === candidate.district);
+  const coverage = district?.hancockCommunities.join(' · ') ?? 'All Hancock County communities';
+  const officeLabel = candidate.district === 'Statewide' ? candidate.office : `${candidate.office} · District ${candidate.district}`;
+
+  return <article className="candidate-profile republican">
+    <div className="candidate-portrait">{candidate.photo ? <Image src={publicAsset(candidate.photo)} alt={`${candidate.name} profile portrait`} width={144} height={176} style={{ objectPosition: candidate.photoPosition }} /> : <span className="photo-needed" aria-label={`Profile photo needed for ${candidate.name}`}><b aria-hidden="true">{initials(candidate.name)}</b><small>Photo coming soon</small></span>}</div>
+    <div className="candidate-profile-copy">
+      <p className="candidate-office">{officeLabel}</p>
+      <h3>{candidate.name}</h3>
+      <p className="candidate-residence">Republican · {candidate.residence}</p>
+      {candidate.bio && <p className="candidate-bio">{candidate.bio}</p>}
+      <div className="candidate-coverage"><strong>Hancock County coverage</strong><p>{coverage}</p>{district && district.otherCommunities.length > 0 && <small>Also: {district.otherCommunities.join(' · ')}</small>}</div>
+      <div className="candidate-links">{candidate.website && <a href={candidate.website} target="_blank" rel="noopener noreferrer">Candidate webpage</a>}{candidate.email && <a href={`mailto:${candidate.email}`}>Email</a>}{candidate.facebook && <a href={candidate.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>}</div>
+    </div>
+  </article>;
+}
+
 export default function CandidatesPage() {
   const active = candidates.filter(candidate => candidate.active && candidate.party === 'Republican');
-  const republicanDistricts = districts.filter(district => active.some(candidate => candidate.office === district.office && candidate.district === district.district));
+  const groups = [
+    { title: 'Statewide & federal', intro: 'Governor, United States Senate, and Maine’s 2nd Congressional District.', offices: ['Governor', 'U.S. Senate', 'U.S. House'] },
+    { title: 'Maine Senate', intro: 'Republican nominees in state Senate districts that contain Hancock County communities.', offices: ['Maine Senate'] },
+    { title: 'Maine House', intro: 'Republican nominees in state House districts that contain Hancock County communities.', offices: ['Maine House'] },
+  ];
 
-  return <main><SiteHeader /><PageHeader eyebrow="2026 general election" title="Republican candidates for Hancock County." intro="Meet the Republican candidates running in Maine Senate and Maine House districts that include Hancock County communities." />
+  return <main><SiteHeader /><PageHeader eyebrow="2026 general election" title="Republican candidates for Hancock County." intro="Meet the Republican nominees on Hancock County ballots—from governor and Congress to the Maine Legislature." />
     <section className="candidate-section">
       <div className="candidate-note">
         <strong>About this list</strong>
-        <p>This page lists Republican candidates in legislative districts that include part of Hancock County. Candidate information was reviewed September 3, 2026.</p>
+        <p>This page lists the Republican statewide and federal nominees serving Hancock County, plus Republican nominees in legislative districts that include county communities. Reviewed September 4, 2026.</p>
         <div><a href={candidateListUrl} target="_blank" rel="noopener noreferrer">Official candidate list</a><a href={senateDistrictsUrl} target="_blank" rel="noopener noreferrer">Senate districts</a><a href={houseDistrictsUrl} target="_blank" rel="noopener noreferrer">House districts</a></div>
       </div>
 
-      <div className="district-list">
-        {republicanDistricts.map(district => {
-          const districtCandidates = active
-            .filter(candidate => candidate.office === district.office && candidate.district === district.district);
-
-          return <article className="district-card" key={`${district.office}-${district.district}`}>
-            <header className="district-heading">
-              <div><p className="candidate-office">{district.office}</p><h2>District {district.district}</h2></div>
-              <span>{districtCandidates.length} {districtCandidates.length === 1 ? 'candidate' : 'candidates'}</span>
-            </header>
-
-            <div className="district-candidates">
-              {districtCandidates.map(candidate => <section className="candidate-profile republican" key={candidate.name}>
-                <div className="candidate-portrait">{candidate.photo ? <Image src={publicAsset(candidate.photo)} alt={`${candidate.name} profile portrait`} width={168} height={208} /> : <span className="photo-needed" aria-label={`Profile photo needed for ${candidate.name}`}><b aria-hidden="true">{initials(candidate.name)}</b><small>Photo coming soon</small></span>}</div>
-                <div>
-                  <p className={`party-badge party-${candidate.party.toLowerCase()}`}>{candidate.party}</p>
-                  <h3>{candidate.name}</h3>
-                  <p className="candidate-residence">Residence: {candidate.residence}</p>
-                  {candidate.bio && <p>{candidate.bio}</p>}
-                  {candidate.priorities.length > 0 && <ul>{candidate.priorities.map(priority => <li key={priority}>{priority}</li>)}</ul>}
-                  <div className="candidate-links">{candidate.website && <a href={candidate.website} target="_blank" rel="noopener noreferrer">Visit candidate webpage</a>}{candidate.email && <a href={`mailto:${candidate.email}`}>Email</a>}{candidate.facebook && <a href={candidate.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>}</div>
-                </div>
-              </section>)}
-            </div>
-
-            <div className="district-communities">
-              <div><h3>Hancock County communities</h3><p>{district.hancockCommunities.join(' · ')}</p></div>
-              {district.otherCommunities.length > 0 && <div><h3>Elsewhere in the district</h3><p>{district.otherCommunities.join(' · ')}</p></div>}
-            </div>
-          </article>;
+      <div className="candidate-groups">
+        {groups.map(group => {
+          const groupCandidates = active.filter(candidate => group.offices.includes(candidate.office));
+          return <section className="candidate-group" key={group.title}>
+            <header><div><p className="eyebrow">2026 Republican nominees</p><h2>{group.title}</h2></div><p>{group.intro}</p></header>
+            <div className="candidate-compact-grid">{groupCandidates.map(candidate => <CandidateCard candidate={candidate} key={candidate.name} />)}</div>
+          </section>;
         })}
       </div>
     </section><SiteFooter /></main>;

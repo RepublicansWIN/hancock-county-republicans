@@ -33,6 +33,14 @@ a { color: inherit; text-decoration: none; }
 nav { display: flex; align-items: center; gap: clamp(1rem,2.2vw,2rem); font-size: .73rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 nav a { padding: .5rem 0; border-bottom: 2px solid transparent; }
 nav a:hover, nav a:focus-visible { border-color: var(--red); }
+.nav-dropdown { position: relative; }
+.nav-dropdown summary { display: flex; align-items: center; gap: .35rem; padding: .5rem 0; border-bottom: 2px solid transparent; cursor: pointer; list-style: none; }
+.nav-dropdown summary::-webkit-details-marker { display: none; }
+.nav-dropdown summary:hover, .nav-dropdown summary:focus-visible, .nav-dropdown[open] summary { border-color: var(--red); }
+.nav-dropdown summary span { color: var(--red); font-size: .8rem; }
+.nav-dropdown-menu { position: absolute; top: calc(100% + .5rem); right: 0; min-width: 170px; display: grid; padding: .5rem 1rem; background: #fff; border: 1px solid var(--line); box-shadow: 0 12px 30px rgba(9,29,48,.14); }
+.nav-dropdown-menu a { padding: .75rem 0; border-bottom: 1px solid var(--line); }
+.nav-dropdown-menu a:last-child { border-bottom: 0; }
 
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 1.5rem; color: #fff; background: var(--red); font-weight: 800; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--red); transition: .2s ease; }
 .button:hover, .button:focus-visible { background: var(--red-dark); transform: translateY(-2px); }
@@ -71,6 +79,14 @@ h1 em { color: var(--red); font-weight: 500; }
 .intro-band { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(3rem,8vw,8rem); padding: clamp(4rem,8vw,7rem) clamp(1.25rem,8vw,9rem); }
 .intro-band h2 { margin: 0; font-size: clamp(2.25rem,4vw,3.7rem); }
 .intro-band > p:last-child { max-width: 720px; margin: 2.2rem 0 0; color: var(--muted); font-size: 1.08rem; line-height: 1.8; }
+.home-volunteer { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(3rem,8vw,8rem); padding: clamp(4rem,8vw,7rem) clamp(1.25rem,8vw,9rem); color: white; background: var(--navy); }
+.home-volunteer h2 { margin: 0; color: white; font-size: clamp(2.2rem,4vw,3.7rem); }
+.home-volunteer-heading > p:not(.eyebrow) { margin: 1.25rem 0 2rem; color: #c7d3dd; line-height: 1.7; }
+.home-opportunities article { display: grid; grid-template-columns: 48px 1fr; gap: 1rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,.18); }
+.home-opportunities article:first-child { padding-top: 0; }
+.home-opportunities span { color: var(--gold); font-family: var(--font-serif), Georgia, serif; }
+.home-opportunities h3 { margin: 0 0 .35rem; font-family: var(--font-serif), Georgia, serif; font-size: 1.35rem; }
+.home-opportunities p { margin: 0; color: #aebcca; line-height: 1.6; }
 
 .news-section { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(2rem,7vw,7rem); padding: clamp(4rem,8vw,7rem) clamp(1.25rem,8vw,9rem); background: #ece8de; border-top: 1px solid var(--line); }
 .news-heading h2 { margin: 0; font-size: clamp(2.1rem,3.5vw,3.5rem); }
@@ -122,6 +138,12 @@ blockquote { margin: 2rem 0; padding: 1rem 0 1rem 1.4rem; border-left: 3px solid
 .candidate-note p { margin: 0; color: var(--muted); line-height: 1.65; }
 .candidate-note > div { display: grid; gap: .45rem; }
 .candidate-note a { color: var(--red); font-size: .7rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.candidate-groups { display: grid; gap: clamp(4rem,7vw,6rem); }
+.candidate-group > header { display: grid; grid-template-columns: .75fr 1.25fr; gap: 2rem; align-items: end; margin-bottom: 1.6rem; padding-bottom: 1.25rem; border-bottom: 3px solid var(--navy); }
+.candidate-group > header .eyebrow { margin-bottom: .55rem; }
+.candidate-group > header h2 { margin: 0; font-size: clamp(2rem,3.4vw,3.2rem); }
+.candidate-group > header > p { max-width: 620px; margin: 0; color: var(--muted); line-height: 1.6; }
+.candidate-compact-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.25rem; }
 .district-list { display: grid; gap: 3rem; }
 .district-card { background: #fff; border: 1px solid var(--line); }
 .district-heading { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; padding: 2rem; border-bottom: 1px solid var(--line); }
@@ -129,10 +151,9 @@ blockquote { margin: 2rem 0; padding: 1rem 0 1rem 1.4rem; border-left: 3px solid
 .district-heading > span { color: var(--muted); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .no-republican { margin: 0; padding: 1rem 2rem; color: #694c22; background: #f4ead5; border-bottom: 1px solid #ddcfb2; font-size: .82rem; font-weight: 700; }
 .district-candidates { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
-.candidate-profile { display: grid; grid-template-columns: 84px 1fr; gap: 1.25rem; min-height: 220px; padding: 2rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.candidate-profile:nth-child(even) { border-right: 0; }
-.candidate-profile.republican { border-top: 5px solid var(--red); background: #fcfaf5; }
-.candidate-portrait { width: 84px; height: 104px; display: grid; place-items: center; overflow: hidden; color: white; background: var(--navy); }
+.candidate-profile { display: grid; grid-template-columns: 72px 1fr; gap: 1rem; min-width: 0; padding: 1.25rem; border: 1px solid var(--line); }
+.candidate-profile.republican { border-top: 4px solid var(--red); background: #fff; }
+.candidate-portrait { width: 72px; height: 88px; display: grid; place-items: center; overflow: hidden; color: white; background: var(--navy); }
 .candidate-portrait img { width: 100%; height: 100%; object-fit: cover; }
 .candidate-portrait span { font-family: var(--font-serif), Georgia, serif; font-size: 1.8rem; }
 .candidate-portrait .photo-needed { display: grid; gap: .25rem; place-items: center; padding: .55rem; text-align: center; }
@@ -141,9 +162,18 @@ blockquote { margin: 2rem 0; padding: 1rem 0 1rem 1.4rem; border-left: 3px solid
 .party-badge { width: max-content; margin: 0 0 .55rem; padding: .28rem .5rem; color: #fff; background: #64707b; font-size: .62rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
 .party-republican { background: var(--red); }
 .party-democratic { background: #315d89; }
-.candidate-profile h3 { margin: 0; color: var(--navy); font-family: var(--font-serif), Georgia, serif; font-size: 1.55rem; }
-.candidate-profile p { color: var(--muted); line-height: 1.55; }
-.candidate-profile .candidate-residence { margin: .35rem 0 .8rem; color: var(--ink); font-size: .78rem; font-weight: 700; }
+.candidate-profile h3 { margin: .15rem 0 0; color: var(--navy); font-family: var(--font-serif), Georgia, serif; font-size: 1.35rem; }
+.candidate-profile p { color: var(--muted); line-height: 1.5; }
+.candidate-profile .candidate-office { margin: 0; font-size: .62rem; }
+.candidate-profile .candidate-residence { margin: .3rem 0 .65rem; color: var(--ink); font-size: .72rem; font-weight: 700; }
+.candidate-bio { margin: 0 0 .85rem; font-size: .82rem; }
+.candidate-coverage { grid-column: 1/-1; padding-top: .75rem; border-top: 1px solid var(--line); }
+.candidate-coverage strong { display: block; margin-bottom: .3rem; color: var(--navy); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
+.candidate-coverage p { margin: 0; font-size: .76rem; line-height: 1.55; }
+.candidate-coverage small { display: block; margin-top: .35rem; color: var(--muted); font-size: .68rem; line-height: 1.45; }
+.candidate-profile-copy { min-width: 0; }
+.candidate-profile .candidate-links { grid-column: 1/-1; margin-top: .85rem; }
+.candidate-profile .candidate-links a { font-size: .65rem; }
 .candidate-profile ul { margin: 1rem 0; padding-left: 1.1rem; color: var(--muted); font-size: .84rem; line-height: 1.6; }
 .district-communities { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2rem; background: var(--navy); color: #d8e1e8; }
 .district-communities > div:only-child { grid-column: 1/-1; }
@@ -206,7 +236,7 @@ footer .brand-mark { width: 34px; height: 34px; font-size: .95rem; }
   .hero { grid-template-columns: 1fr; }
   .hero-copy { padding-bottom: 5rem; }
   .hero-art { min-height: 480px; }
-  .candidate-card, .volunteer-section, .contact-section, .news-section { grid-template-columns: 1fr; }
+  .candidate-card, .volunteer-section, .contact-section, .news-section, .home-volunteer { grid-template-columns: 1fr; }
   .gallery-grid .gallery-featured { grid-template-columns: 1fr; }
   .candidate-photo { min-height: 360px; }
   .candidate-note { grid-template-columns: 1fr; }
@@ -216,8 +246,9 @@ footer .brand-mark { width: 34px; height: 34px; font-size: .95rem; }
   .brand small { display: none; }
   .button-small { min-height: 38px; padding: 0 .9rem; font-size: .66rem; }
   .site-header { height: auto; min-height: 78px; padding-top: .75rem; padding-bottom: .75rem; }
-  nav { display: flex; grid-column: 1/-1; order: 3; width: 100%; gap: 1rem; overflow-x: auto; padding: .35rem 0 .1rem; }
+  nav { display: flex; grid-column: 1/-1; order: 3; width: 100%; gap: 1rem; overflow: visible; padding: .35rem 0 .1rem; }
   nav a { flex: 0 0 auto; }
+  .nav-dropdown-menu { left: 0; right: auto; z-index: 20; }
   .hero { min-height: 0; }
   .hero-copy { padding: 4.75rem 1.35rem; }
   .hero-art { min-height: 400px; padding: 1.5rem; }
@@ -234,7 +265,7 @@ footer .brand-mark { width: 34px; height: 34px; font-size: .95rem; }
   .news-card > img { min-height: 220px; max-height: 340px; }
   .candidate-section, .event-section { padding-left: 1rem; padding-right: 1rem; }
   .candidate-photo { min-height: 300px; }
-  .district-candidates, .district-communities { grid-template-columns: 1fr; }
+  .district-candidates, .district-communities, .candidate-compact-grid, .candidate-group > header { grid-template-columns: 1fr; }
   .candidate-profile { grid-template-columns: 64px 1fr; padding: 1.35rem; border-right: 0; }
   .candidate-portrait { width: 64px; height: 80px; }
   .district-heading { align-items: start; padding: 1.5rem; }

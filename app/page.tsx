@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { SiteFooter, SiteHeader } from '@/components/site-shell';
 import home from '@/content/home.json';
 import maineWire from '@/content/maine-wire.json';
+import volunteer from '@/content/volunteer.json';
 import { publicAsset } from '@/lib/public-asset';
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
           <p className="eyebrow">{home.eyebrow}</p>
           <h1>{home.headline}<br /><em>{home.headlineAccent}</em></h1>
           <p className="hero-lede">{home.introduction}</p>
-          <div className="hero-actions"><Link className="button" href="/events">Upcoming events</Link><Link className="text-link" href="/contact">Contact the committee <span aria-hidden="true">→</span></Link></div>
+          <div className="hero-actions"><Link className="button" href="/volunteer">Get involved</Link><Link className="text-link" href="/events">Upcoming events <span aria-hidden="true">→</span></Link></div>
         </div>
         <div className="hero-art" aria-label="Hancock County coastal landscape">
           {home.heroImage ? <><img className="hero-image" src={publicAsset(home.heroImage)} alt="Hancock County, Maine" /><p className="photo-caption">Hancock County · Downeast Maine</p></> : <div className="county-panel"><span>Maine’s Hancock County GOP</span><strong>Local meetings, candidates, and volunteer opportunities.</strong><p>Serving communities throughout Hancock County, Maine.</p></div>}
@@ -30,6 +31,11 @@ export default function Home() {
       <section className="intro-band">
         <div><p className="eyebrow">{home.missionEyebrow}</p><h2>{home.missionHeadline}</h2></div>
         <p>{home.missionText}</p>
+      </section>
+
+      <section className="home-volunteer">
+        <div className="home-volunteer-heading"><p className="eyebrow">{volunteer.eyebrow}</p><h2>{volunteer.headline}</h2><p>{volunteer.introduction}</p><Link className="button" href="/volunteer">Volunteer with us</Link></div>
+        <div className="home-opportunities">{volunteer.opportunities.map((item, index) => <article key={item.title}><span>0{index + 1}</span><div><h3>{item.title}</h3><p>{item.description}</p></div></article>)}</div>
       </section>
 
       <section className="news-section">

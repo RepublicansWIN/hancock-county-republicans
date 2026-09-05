@@ -1,15 +1,6 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
 
-const navItems = [
-  ['About', '/about'],
-  ['Candidates', '/candidates'],
-  ['Events', '/events'],
-  ['Gallery', '/gallery'],
-  ['Volunteer', '/volunteer'],
-  ['Contact', '/contact'],
-] as const;
-
 export function SiteHeader() {
   return (
     <>
@@ -20,9 +11,19 @@ export function SiteHeader() {
           <span><strong>Hancock County</strong><small>Republican Committee</small></span>
         </Link>
         <nav aria-label="Main navigation">
-          {navItems.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
+          <Link href="/">Home</Link>
+          <Link href="/candidates">Candidates</Link>
+          <Link href="/about">About</Link>
+          <details className="nav-dropdown">
+            <summary>Get involved <span aria-hidden="true">⌄</span></summary>
+            <div className="nav-dropdown-menu">
+              <Link href="/gallery">Gallery</Link>
+              <Link href="/events">Events</Link>
+              <Link href="/volunteer">Volunteer</Link>
+            </div>
+          </details>
         </nav>
-        <Link className="button button-small" href="/volunteer">Volunteer</Link>
+        <Link className="button button-small" href="/contact">Contact</Link>
       </header>
     </>
   );
