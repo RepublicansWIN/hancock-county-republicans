@@ -23,7 +23,7 @@ export function SiteHeader() {
             </div>
           </details>
         </nav>
-        <Link className="button button-small" href="/contact">Contact</Link>
+        {site.donateEnabled ? <a className="button button-small" href={site.donateUrl || '/contact'}>Donate</a> : <Link className="button button-small" href="/contact">Contact</Link>}
       </header>
     </>
   );
@@ -34,6 +34,7 @@ export function SiteFooter() {
     <footer>
       <div className="footer-brand"><span className="brand-mark">HC</span><strong>{site.shortName}</strong></div>
       <p>{[site.email, site.location].filter(Boolean).join(' • ')}</p>
+      <div className="footer-links"><Link href="/contact">Contact</Link>{site.facebook && <a href={site.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>}{site.donateEnabled && <a href={site.donateUrl || '/contact'}>Donate</a>}</div>
       {site.disclaimer && <p className="disclaimer">{site.disclaimer}</p>}
     </footer>
   );

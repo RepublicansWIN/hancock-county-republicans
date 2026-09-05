@@ -5,6 +5,9 @@
   "email": "",
   "phone": "",
   "mailingAddress": "225 High Street, Suite 14, Ellsworth, ME 04605",
-  "facebook": "",
+  "facebook": "https://www.facebook.com/profile.php?id=100087628333389",
+  "facebookFeedEnabled": true,
+  "donateUrl": "/contact",
+  "donateEnabled": true,
   "disclaimer": ""
 }

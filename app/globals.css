@@ -46,6 +46,15 @@ nav a:hover, nav a:focus-visible { border-color: var(--red); }
 .button:hover, .button:focus-visible { background: var(--red-dark); transform: translateY(-2px); }
 .button-small { min-height: 42px; justify-self: end; }
 
+.facebook-feature { min-height: 650px; display: grid; grid-template-columns: minmax(0,.9fr) minmax(360px,1.1fr); gap: clamp(2.5rem,7vw,7rem); align-items: center; padding: clamp(3rem,6vw,5rem) clamp(1.25rem,8vw,9rem); background: #fff; border-bottom: 1px solid var(--line); }
+.facebook-feature-copy h1 { font-size: clamp(2.8rem,5vw,4.9rem); }
+.facebook-feature-copy > p:not(.eyebrow) { max-width: 540px; margin: 1.5rem 0 2rem; color: var(--muted); font-family: var(--font-serif), Georgia, serif; font-size: 1.15rem; line-height: 1.65; }
+.facebook-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.facebook-embed-wrap { width: min(100%,540px); justify-self: end; padding: 1.25rem; background: var(--cream); border: 1px solid var(--line); box-shadow: 14px 14px 0 var(--navy); }
+.facebook-embed-wrap iframe { display: block; width: 100%; max-width: 500px; height: 620px; margin: 0 auto; border: 0; overflow: hidden; background: #fff; }
+.facebook-embed-wrap > p { margin: 1rem 0 0; color: var(--muted); font-size: .7rem; line-height: 1.5; text-align: center; }
+.facebook-embed-wrap > p a { color: var(--red); font-weight: 800; }
+
 .hero { min-height: 560px; display: grid; grid-template-columns: 1.08fr .92fr; background: var(--cream); overflow: hidden; }
 .hero-copy { padding: clamp(4rem,8vw,7rem) clamp(2rem,6vw,7rem); align-self: center; }
 .eyebrow { display: flex; align-items: center; gap: .75rem; margin: 0 0 1.5rem; color: var(--red); font-size: .71rem; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
@@ -228,12 +237,15 @@ blockquote { margin: 2rem 0; padding: 1rem 0 1rem 1.4rem; border-left: 3px solid
 footer { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1.5rem; padding: 2.5rem clamp(1.25rem,5vw,5rem); color: #c7d0d8; background: var(--navy-deep); font-size: .76rem; }
 .footer-brand { display: flex; align-items: center; gap: .75rem; color: white; }
 footer .brand-mark { width: 34px; height: 34px; font-size: .95rem; }
+.footer-links { display: flex; gap: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; }
+.footer-links a:hover, .footer-links a:focus-visible { color: #fff; }
 .disclaimer { grid-column: 1/-1; margin: 0; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.15); color: #94a4b2; }
 
 @media (max-width: 980px) {
   .site-header { grid-template-columns: 1fr auto; }
   nav { display: none; }
-  .hero { grid-template-columns: 1fr; }
+  .facebook-feature, .hero { grid-template-columns: 1fr; }
+  .facebook-embed-wrap { justify-self: start; }
   .hero-copy { padding-bottom: 5rem; }
   .hero-art { min-height: 480px; }
   .candidate-card, .volunteer-section, .contact-section, .news-section, .home-volunteer { grid-template-columns: 1fr; }
@@ -250,6 +262,9 @@ footer .brand-mark { width: 34px; height: 34px; font-size: .95rem; }
   nav a { flex: 0 0 auto; }
   .nav-dropdown-menu { left: 0; right: auto; z-index: 20; }
   .hero { min-height: 0; }
+  .facebook-feature { min-height: 0; padding: 3.5rem 1rem; }
+  .facebook-embed-wrap { width: 100%; padding: .65rem; box-shadow: 7px 7px 0 var(--navy); }
+  .facebook-embed-wrap iframe { height: 560px; }
   .hero-copy { padding: 4.75rem 1.35rem; }
   .hero-art { min-height: 400px; padding: 1.5rem; }
   .photo-caption { right: 1.5rem; }

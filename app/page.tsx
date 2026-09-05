@@ -3,12 +3,28 @@ import { SiteFooter, SiteHeader } from '@/components/site-shell';
 import home from '@/content/home.json';
 import maineWire from '@/content/maine-wire.json';
 import volunteer from '@/content/volunteer.json';
+import site from '@/content/site.json';
 import { publicAsset } from '@/lib/public-asset';
 
 export default function Home() {
+  const facebookPluginUrl = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(site.facebook)}&tabs=timeline&width=500&height=620&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false`;
+
   return (
     <main>
       <SiteHeader />
+
+      {site.facebookFeedEnabled && site.facebook && <section className="facebook-feature">
+        <div className="facebook-feature-copy">
+          <p className="eyebrow">Latest update</p>
+          <h1>What’s happening<br /><em>right now.</em></h1>
+          <p>The newest public post from the Hancock County Republican Facebook page.</p>
+          <div className="facebook-actions"><a className="text-link" href={site.facebook} target="_blank" rel="noopener noreferrer">Open Facebook <span aria-hidden="true">→</span></a>{site.donateEnabled && <a className="button" href={site.donateUrl || '/contact'}>Donate</a>}</div>
+        </div>
+        <div className="facebook-embed-wrap">
+          <iframe title="Latest posts from Hancock County Republicans on Facebook" src={facebookPluginUrl} width="500" height="620" loading="eager" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" />
+          <p>If Facebook does not display here, <a href={site.facebook} target="_blank" rel="noopener noreferrer">view the latest post on Facebook</a>.</p>
+        </div>
+      </section>}
 
       <section className="hero">
         <div className="hero-copy">
