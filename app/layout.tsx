@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
-const siteUrl = 'https://republicanswin.github.io/hancock-county-republicans';
+const siteUrl = 'https://hancockcountymainegop.org';
 
 export const metadata: Metadata = {
   title: 'Hancock County Republican Committee',
