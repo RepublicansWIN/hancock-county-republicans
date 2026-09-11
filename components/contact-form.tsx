@@ -18,6 +18,7 @@ export function ContactForm({ kind = 'contact', recipient }: { kind?: 'contact' 
     <form className="contact-form" action={`https://formsubmit.co/${destination}`} method="POST">
       <input type="hidden" name="_subject" value={subject} />
       <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_next" value="https://hancockcountymainegop.org/thanks/" />
       <input className="form-honey" type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <input type="hidden" name="form" value={kind === 'volunteer' ? 'Volunteer form' : 'Contact form'} />
