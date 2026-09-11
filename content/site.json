@@ -2,12 +2,13 @@
   "organization": "Hancock County Republican Committee",
   "shortName": "Hancock County GOP",
   "location": "Hancock County, Maine",
-  "email": "",
+  "email": "hancockcountymainegop@gmail.com",
   "phone": "",
   "mailingAddress": "225 High Street, Suite 14, Ellsworth, ME 04605",
   "facebook": "https://www.facebook.com/profile.php?id=100087628333389",
   "facebookFeedEnabled": true,
-  "donateUrl": "/contact",
+  "donateUrl": "https://www.paypal.com/donate/?hosted_button_id=R23VJD42K4SFA",
+  "paypalHostedButtonId": "R23VJD42K4SFA",
   "donateEnabled": true,
   "disclaimer": ""
 }

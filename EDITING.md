@@ -16,7 +16,8 @@ This site is prepared for Pages CMS. All routine content lives in `content/*.jso
 - Replace every placeholder in the Pages CMS editor.
 - Upload the approved logo and photographs.
 - Confirm the committee's paid-for-by disclaimer.
-- Connect the contact and volunteer forms to an inbox or form service.
+- Add the committee inbox under **Site settings → Committee email and form recipient**. The contact and volunteer forms send to this address. After publishing, submit either form once and click the activation link delivered by FormSubmit; later submissions will then arrive normally.
+- Paste the committee's PayPal donation link and hosted button ID under **Site settings**, then keep **Show Donate button** enabled. The hosted button ID powers the PayPal button embedded on the home page.
 - Confirm candidate claims, links, offices, and current active status.
 - Turn on two-factor authentication for every owner and editor.
 

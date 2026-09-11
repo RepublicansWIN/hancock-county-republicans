@@ -19,12 +19,13 @@ content:
       - { name: organization, label: Full organization name, type: string, required: true }
       - { name: shortName, label: Short organization name, type: string, required: true }
       - { name: location, type: string }
-      - { name: email, type: string }
+      - { name: email, label: Committee email and form recipient, type: string }
       - { name: phone, type: string }
       - { name: mailingAddress, label: Mailing address, type: text }
       - { name: facebook, label: Facebook URL, type: string }
       - { name: facebookFeedEnabled, label: Show Facebook feed on home page, type: boolean, default: true }
-      - { name: donateUrl, label: Donate button URL, type: string }
+      - { name: donateUrl, label: Donate button URL (PayPal or other), type: string }
+      - { name: paypalHostedButtonId, label: PayPal hosted button ID, type: string }
       - { name: donateEnabled, label: Show Donate button, type: boolean, default: true }
       - { name: disclaimer, label: Committee-approved disclaimer, type: text }
   - name: home

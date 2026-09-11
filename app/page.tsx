@@ -5,6 +5,7 @@ import maineWire from '@/content/maine-wire.json';
 import volunteer from '@/content/volunteer.json';
 import site from '@/content/site.json';
 import { publicAsset } from '@/lib/public-asset';
+import { PayPalDonateButton } from '@/components/paypal-donate-button';
 
 export default function Home() {
   const facebookPluginUrl = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(site.facebook)}&tabs=timeline&width=380&height=460&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false`;
@@ -50,6 +51,19 @@ export default function Home() {
         <Link href="/events"><strong>Meetings & events</strong><small>What’s happening in Hancock County</small></Link>
         <Link href="/volunteer"><strong>Volunteer</strong><small>Find a practical way to help</small></Link>
       </section>
+
+      {site.donateEnabled && site.paypalHostedButtonId && <section className="donate-section" id="donate">
+        <div>
+          <p className="eyebrow">Support the committee</p>
+          <h2>Help elect Republicans in Hancock County.</h2>
+          <p>Your contribution helps with local organizing, events, voter outreach, and candidate support throughout the county.</p>
+        </div>
+        <div className="donate-panel">
+          <strong>Contribute securely through PayPal</strong>
+          <p>Choose your amount and payment method on PayPal’s secure donation page.</p>
+          <PayPalDonateButton hostedButtonId={site.paypalHostedButtonId} fallbackUrl={site.donateUrl} />
+        </div>
+      </section>}
 
       <section className="intro-band">
         <div><p className="eyebrow">{home.missionEyebrow}</p><h2>{home.missionHeadline}</h2></div>
